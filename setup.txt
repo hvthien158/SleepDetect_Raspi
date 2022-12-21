@@ -2,5 +2,5 @@ imutils
 numpy
 cmake
 dlib
-opencv-python-headless
+opencv-python
 playsound

@@ -11,7 +11,7 @@ import os
 import cv2
 
 # Cau hinh duong dan den file alarm.wav
-wav_path = "/home/pi/miai/landmark/alarm.wav"
+wav_path = "D:\PyCharm Project\SleepDetect\Main_Source\Alarm.wav"
 
 # Ham phat ra am thanh
 def play_sound(path):
@@ -38,7 +38,7 @@ def eye_ratio(eye):
 eye_ratio_threshold = 0.25
 
 # Threshold so frame lien tuc nham mat
-max_sleep_frames = 16
+max_sleep_frames = 15
 
 # Dem so frame ngu
 sleep_frames = 0
@@ -64,6 +64,7 @@ while True:
 	frame = vs.read()
 
 	# Resize de tang toc do xu ly
+	# frame = imutils.rotate(frame, 90)  #Dung trong cam Pi de co the quay camera
 	frame = imutils.resize(frame, width=450)
 
 	# Chuyen ve gray
@@ -111,8 +112,7 @@ while True:
 
 
 					# Tien hanh phat am thanh trong 1 luong rieng
-					t = Thread(target=play_sound,
-							   args=(wav_path,))
+					t = Thread(target=play_sound, args=(wav_path,))
 					t.deamon = True
 					t.start()
 
