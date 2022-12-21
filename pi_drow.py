@@ -10,8 +10,8 @@ import dlib
 import os
 import cv2
 
-# Cau hinh duong dan den file alarm.wav
-wav_path = "/Main_Source/alarm.wav"
+# Cau hinh duong dan den file warning.wav
+wav_path = "/Main_Source/warning.wav"
 
 # Ham phat ra am thanh
 def play_sound(path):
