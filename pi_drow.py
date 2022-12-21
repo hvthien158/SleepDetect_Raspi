@@ -11,7 +11,7 @@ import os
 import cv2
 
 # Cau hinh duong dan den file alarm.wav
-wav_path = "D:\PyCharm Project\SleepDetect\Main_Source\Alarm.wav"
+wav_path = "/Main_Source/alarm.wav"
 
 # Ham phat ra am thanh
 def play_sound(path):
