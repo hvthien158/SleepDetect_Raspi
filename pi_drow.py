@@ -38,7 +38,7 @@ def eye_ratio(eye):
 eye_ratio_threshold = 0.25
 
 # Threshold so frame lien tuc nham mat
-max_sleep_frames = 15
+max_sleep_frames = 10
 
 # Dem so frame ngu
 sleep_frames = 0
@@ -71,7 +71,7 @@ while True:
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 	# Detect cac mat trong anh
-	faces = face_detect.detectMultiScale(gray, scaleFactor=1.1,		minNeighbors=5, minSize=(100, 100),		flags=cv2.CASCADE_SCALE_IMAGE)
+	faces = face_detect.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(100, 100), flags=cv2.CASCADE_SCALE_IMAGE)
 
 	# Duyet qua cac mat
 	for (x, y, w, h) in faces:
@@ -117,7 +117,7 @@ while True:
 					t.start()
 
 				# Ve dong chu canh bao
-				cv2.putText(frame, "BUON NGU THI DI NGU DI ONG OI!!!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+				cv2.putText(frame, "WARNING!!!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
 		# Neu khong nham mat thi
 		else:
@@ -127,7 +127,7 @@ while True:
 			alarmed = False
 
 			# Hien thi gia tri eye ratio trung binh
-			cv2.putText(frame, "EYE AVG RATIO: {:.3f}".format(eye_avg_ratio), (10, 30),	cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
+			cv2.putText(frame, "EYE AVG RATIO: {:.3f}".format(eye_avg_ratio), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
 
 	# Hien thi len man hinh
 	cv2.imshow("Camera", frame)
